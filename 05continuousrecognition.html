@@ -1,0 +1,143 @@
+<html>
+<head>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.4.5/p5.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.4.5/addons/p5.dom.js"></script>
+	<script src="../lib/p5.speech.js"></script>
+	<script>
+
+	var myRec = new p5.SpeechRec('en-US', parseResult); // new P5.SpeechRec object
+	myRec.continuous = true; // do continuous recognition
+	myRec.interimResults = true; // allow partial recognition (faster, less accurate)
+
+    //var sound;
+        
+    var imgE, imgE2, imgH, imgH2, imgK, imgK2, imgS, imgS2;
+        
+	var x, y;
+	var dx, dy;
+
+    function preload()
+    {
+        //sound = loadSound("Halsey2.mp3");
+        
+        imgE = loadImage("Eisenegger.jpg");
+        //imgE2 = loadImage("Eisenegger2.jpg");
+        imgH = loadImage("Holzer.jpg");
+        imgH2 = loadImage("Holzer2.jpg");
+        imgK = loadImage("Kruger.jpg");
+        imgK2 = loadImage("Kruger2.jpg");
+        //imgS = loadImage("Sanja.jpg");
+        //imgS2 = loadImage("sanja2.jpg");
+    }
+        
+	function setup()
+	{
+        //sound.loop();
+        
+		// graphics stuff:
+		createCanvas(windowWidth, windowHeight);
+		background(232,28,28);
+		fill(0, 0, 0, 255);
+		x = width/2;
+		y = height/2;
+		dx = 0;
+		dy = 0;
+
+		// instructions:
+		textSize(70);
+		textAlign(LEFT);
+        textFont('Futura', 'sans-script');
+        
+		//text("draw: up, down, left, right, clear", 20, 20);
+
+		//myRec.onResult = parseResult; // now in the constructor
+		myRec.start(); // start engine
+	}
+
+	function draw()
+	{
+//		ellipse(x, y, 5, 5);
+//		x+=dx;
+//		y+=dy;
+//		if(x<0) x = width;
+//		if(y<0) y = height;
+//		if(x>width) x = 0;
+//		if(y>height) y = 0;
+	}
+
+	function parseResult()
+	{
+		// recognition system will often append words into phrases.
+		// so hack here is to only use the last word:
+        fill(0);
+		var mostrecentword = myRec.resultString.split(' ').pop();
+		if(mostrecentword.indexOf("raped")!==-1) { text("raped", windowWidth/2, windowHeight/2); }
+        else if(mostrecentword.indexOf("abortion")!==-1) { text("abortion", random(windowWidth-50), random(windowHeight-50)); }
+        //else if(mostrecentword.indexOf("afford")!==-1) {image(imgS, random(windowWidth), random(windowHeight), 220, 330); }
+        //else if(mostrecentword.indexOf("son")!==-1) { text("son", random(windowWidth), random(windowHeight)); }
+        else if(mostrecentword.indexOf("quiet")!==-1) { image(imgE, random(windowWidth-50), random(windowHeight-50), 300,390); }
+        else if(mostrecentword.indexOf("lie")!==-1) { text("lie", random(windowWidth-50), random(windowHeight-50)); }
+        else if(mostrecentword.indexOf("fighting")!==-1) { text("fighting", random(windowWidth-50), random(windowHeight-50)); }
+        else if(mostrecentword.indexOf("sex")!==-1) { image(imgH2, random(windowWidth-50), random(windowHeight-50),450,250); }
+        else if(mostrecentword.indexOf("blow")!==-1) { text("blow him", random(windowWidth-50), random(windowHeight-50)); }
+        else if(mostrecentword.indexOf("much")!==-1) { text("owe him", random(windowWidth-50), random(windowHeight-50)); }
+        else if(mostrecentword.indexOf("please")!==-1) { text("please", random(windowWidth-50), random(windowHeight-50)); }
+        else if(mostrecentword.indexOf("boyfriend")!==-1) { text("boyfriend",random(windowWidth-50), random(windowHeight-50)); }
+        else if(mostrecentword.indexOf("hurting")!==-1) { text("hurting me", random(windowWidth-50), random(windowHeight-50)); }
+        else if(mostrecentword.indexOf("unease")!==-1) { text("unease", random(windowWidth-50), random(windowHeight-50)); }
+        else if(mostrecentword.indexOf("queen")!==-1) { text("queen", random(windowWidth-50), random(windowHeight-50)); }
+        else if(mostrecentword.indexOf("naive")!==-1) { text("naive", random(windowWidth-50), random(windowHeight-50)); }
+        else if(mostrecentword.indexOf("clean")!==-1) { text("clean", random(windowWidth-50), random(windowHeight-50)); }
+        else if(mostrecentword.indexOf("protection")!==-1) { text("protection", random(windowWidth-50), random(windowHeight-50)); }
+        else if(mostrecentword.indexOf("dance")!==-1) { text("dance", random(windowWidth-50), random(windowHeight-50)); }
+        else if(mostrecentword.indexOf("blood")!==-1) { text("blood", random(windowWidth-50), random(windowHeight-50)); }
+        else if(mostrecentword.indexOf("miscarriage")!==-1) { text("miscarriage", random(windowWidth-50), random(windowHeight-50)); }
+        else if(mostrecentword.indexOf("happened")!==-1) { text("ME", windowWidth/2, windowHeight/2-100); }
+        else if(mostrecentword.indexOf("safe")!==-1) { text("safe", random(windowWidth-50), random(windowHeight-50)); }
+        //else if(mostrecentword.indexOf("v")!==-1) { text("earned it", random(windowWidth), random(windowHeight)); }
+        else if(mostrecentword.indexOf("compliment")!==-1) { text("compliment", random(windowWidth-50), random(windowHeight-50)); }
+        else if(mostrecentword.indexOf("Ashley")!==-1) { text("Ashley", random(windowWidth-50), random(windowHeight-50)); }
+        else if(mostrecentword.indexOf("Simone")!==-1) { text("Simone", random(windowWidth-50), random(windowHeight-50)); }
+        else if(mostrecentword.indexOf("Gabby")!==-1) { text("Gabby", random(windowWidth-50), random(windowHeight-50)); }
+        else if(mostrecentword.indexOf("Mckayla")!==-1) { text("McKayla", random(windowWidth), random(windowHeight)); }
+        else if(mostrecentword.indexOf("Gaga")!==-1) { text("Gaga", random(windowWidth-50), random(windowHeight-50)); }
+        else if(mostrecentword.indexOf("Rosario")!==-1) { text("Rosario", random(windowWidth-50), random(windowHeight-50)); }
+        else if(mostrecentword.indexOf("Aly")!==-1) { text("Aly", random(windowWidth-50), random(windowHeight-50)); }
+        else if(mostrecentword.indexOf("beginning")!==-1) { text("beginning", random(windowWidth-50), random(windowHeight-50)); }
+        else if(mostrecentword.indexOf("finale")!==-1) { text("not the finale", random(windowWidth-50), random(windowHeight-50)); }
+        else if(mostrecentword.indexOf("rally")!==-1) { text("rally", random(windowWidth-50), random(windowHeight-50)); }
+        else if(mostrecentword.indexOf("Olympians")!==-1) { text("Olympians", random(windowWidth-50), random(windowHeight-50)); }
+        //else if(mostrecentword.indexOf("resident")!==-1) { text("medical resident", random(windowWidth), random(windowHeight)); }
+        else if(mostrecentword.indexOf("president")!==-1) { image(imgK, random(windowWidth-50), random(windowHeight-50),310,400); }
+        else if(mostrecentword.indexOf("doors")!==-1) { text("closed doors", random(windowWidth-50), random(windowHeight-50)); }
+        else if(mostrecentword.indexOf("secrets")!==-1) { text("secrets", random(windowWidth-50), random(windowHeight-50)); }
+        else if(mostrecentword.indexOf("legs")!==-1) { text("legs", random(windowWidth-50), random(windowHeight-50)); }
+        else if(mostrecentword.indexOf("stilettos")!==-1) { text("stilettos", random(windowWidth-50), random(windowHeight-50)); }
+        else if(mostrecentword.indexOf("Hollywood")!==-1) { text("Hollywood hills", random(windowWidth-50), random(windowHeight-50)); }
+        else if(mostrecentword.indexOf("projects")!==-1) { text("projects", random(windowWidth-50), random(windowHeight-50)); }
+        else if(mostrecentword.indexOf("ghettos")!==-1) { text("ghettos", random(windowWidth-50), random(windowHeight-50)); }
+        else if(mostrecentword.indexOf("ripped")!==-1) { image(imgH, random(windowWidth-50), random(windowHeight-50), 300,390); }
+        //else if(mostrecentword.indexOf("teen")!==-1) { text("teen mothers", random(windowWidth), random(windowHeight)); }
+        else if(mostrecentword.indexOf("voice")!==-1) { text("voice", random(windowWidth-50), random(windowHeight-50)); }
+        else if(mostrecentword.indexOf("cry")!==-1) { text("cry", random(windowWidth-50), random(windowHeight-50)); }
+        else if(mostrecentword.indexOf("free")!==-1) { image(imgK2, random(windowWidth-50), random(windowHeight-50), 350, 350); }
+       // else if(mostrecentword.indexOf("love")!==-1) { text("love", random(windowWidth), random(windowHeight)); }
+        else if(mostrecentword.indexOf("Black")!==-1) { text("Black", random(windowWidth-50), random(windowHeight-50)); }
+        else if(mostrecentword.indexOf("Asain")!==-1) { text("Asain", random(windowWidth-50), random(windowHeight-50)); }
+        else if(mostrecentword.indexOf("poor")!==-1) { text("poor", random(windowWidth-50), random(windowHeight-50)); }
+        else if(mostrecentword.indexOf("wealthy")!==-1) { text("wealthy", random(windowWidth-50), random(windowHeight-50)); }
+        else if(mostrecentword.indexOf("trans")!==-1) { text("trans", random(windowWidth-50), random(windowHeight-50)); }
+        else if(mostrecentword.indexOf("cis")!==-1) { text("cis", random(windowWidth-50), random(windowHeight-50)); }
+        else if(mostrecentword.indexOf("Muslim")!==-1) { text("Muslim", random(windowWidth-50), random(windowHeight-50)); }
+        else if(mostrecentword.indexOf("Christian")!==-1) { text("Christian", random(windowWidth-50), random(windowHeight-50)); }
+        else if(mostrecentword.indexOf("listen")!==-1) { text("listen", random(windowWidth-50), random(windowHeight-50)); }
+        else if(mostrecentword.indexOf("war")!==-1) { text("war", random(windowWidth-50), random(windowHeight-50)); }
+        else if(mostrecentword.indexOf("won")!==-1) { background(232, 28, 28); }
+		console.log(mostrecentword);
+	}
+
+</script>
+</head>
+<body>
+</body>
+</html>
